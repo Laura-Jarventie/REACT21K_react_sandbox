@@ -1,0 +1,24 @@
+.animalList {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 1rem;
+  padding: 1rem;
+}
+
+.animalCard {
+  background: #f4f4f4;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #333;
+  padding: 1rem;
+}
+
+.animalCard img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.animalCard button {
+  margin: 2rem;
+}

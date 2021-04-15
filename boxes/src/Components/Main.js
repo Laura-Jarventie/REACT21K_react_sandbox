@@ -1,91 +1,59 @@
-import React, { Component } from "react";
-import Box from "./Box";
+import React from "react";
+import { Switch, Route, Link } from "react-router-dom";
+import Boxes from "./Boxes/Boxes";
+import AnimalsList from "./Animals/AnimalsList";
 
-class Main extends Component {
-  state = {
-    persons: [
-      {
-        name: "Margit",
-        age: 25,
-        title: "CEO",
-      },
-      {
-        name: "Kati",
-        age: 25,
-        title: "Designer",
-      },
-      {
-        name: "Mari",
-        age: 25,
-        title: "Developer",
-      },
-    ],
-    animals: [
-      {
-        name: "Margit",
-        age: 25,
-        title: "CEO",
-      },
-      {
-        name: "Kati",
-        age: 25,
-        title: "Designer",
-      },
-      {
-        name: "Mari",
-        age: 25,
-        title: "Developer",
-      },
-    ],
-  };
+const Home = () => {
+  return (
+    <div>
+      <h1>This is home page</h1>
+    </div>
+  );
+};
 
-  handleClick = () => {
-    this.setState({
-      persons: [
-        {
-          name: "Margit",
-          age: 25,
-          title: "Teacher",
-        },
-        {
-          name: "Kati",
-          age: 25,
-          title: "Student",
-        },
-        {
-          name: "Mari",
-          age: 25,
-          title: "Student",
-        },
-      ],
-    });
-  };
+const Gallery = () => {
+  return (
+    <div>
+      <h1>This is gallery page</h1>
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <main>
-        <button onClick={this.handleClick}>Click me main page</button>
-        <div>
-          <Box
-            name={this.state.persons[0].name}
-            age={this.state.persons[0].age}
-            title={this.state.persons[0].title}
-            example={this.state.something}
-          />
-          <Box
-            name={this.state.persons[1].name}
-            age={this.state.persons[1].age}
-            title={this.state.persons[1].title}
-          />
-          <Box
-            name={this.state.persons[2].name}
-            age={this.state.persons[2].age}
-            title={this.state.persons[2].title}
-          />
-        </div>
-      </main>
-    );
-  }
-}
+const Nav = () => {
+  return (
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/gallery">Gallery</Link>
+          </li>
+          <li>
+            <Link to="/boxes">Boxes</Link>
+          </li>
+          <li>
+            <Link to="/animals">Animals</Link>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  );
+};
+
+const Main = () => {
+  return (
+    <div>
+      <Nav />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/gallery" component={Gallery} />
+        <Route path="/boxes" component={Boxes} />
+        <Route path="/animals" component={AnimalsList} />
+      </Switch>
+    </div>
+  );
+};
 
 export default Main;
