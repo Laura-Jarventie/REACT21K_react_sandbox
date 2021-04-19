@@ -5,28 +5,28 @@ const closeHandler = () => {
   window.location.reload();
 };
 
-const Popup = (props) => {
+const Popup = ({ firstname, lastname, phonenumber, message, role, submit }) => {
   return (
     <div className="overlay">
       <div className="popup">
         <h1>Your note:</h1>
         <div>
           <p>
-            First name: <span>{props.firstname}</span>
+            First name: <span>{firstname}</span>
           </p>
           <p>
-            Last name: <span>{props.lastname}</span>
+            Last name: <span>{lastname}</span>
           </p>
           <p>
-            Phonenumber: <span>{props.phonenumber}</span>
+            Phonenumber: <span>{phonenumber}</span>
           </p>
           <p>
-            Message: <span>{props.message}</span>
+            Message: <span>{message}</span>
           </p>
           <p>
-            Role: <span>{props.role}</span>
+            Role: <span>{role}</span>
           </p>
-          <button onClick={props.submit}>Yes, I am sure</button>
+          <button onClick={submit}>Yes, I am sure</button>
           <button className="secondary" onClick={closeHandler}>
             Nope, don't want to post it
           </button>
