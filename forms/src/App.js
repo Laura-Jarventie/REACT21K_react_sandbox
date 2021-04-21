@@ -3,9 +3,11 @@ import React, { Component } from "react";
 import Form from "./components/Form";
 import View from "./components/View";
 import Popup from "./components/Popup";
+import NotesList from "./components/NotesList";
 
 class App extends Component {
   state = {
+    notes: [],
     firstname: "",
     lastname: "",
     phonenumber: "",
@@ -13,6 +15,11 @@ class App extends Component {
     role: "",
     showPopup: false,
   };
+  componentDidMount() {
+    fetch("http://localhost:3001/notes")
+      .then((response) => response.json())
+      .then((data) => this.setState({ notes: data }));
+  }
 
   changeHandler = (e) => {
     this.setState({
@@ -37,6 +44,7 @@ class App extends Component {
       <div>
         <Form change={this.changeHandler} submit={this.popupHandler} />
         <View {...props} />
+        <NotesList notes={this.state.notes} />
         {this.state.showPopup && <Popup {...props} />}
       </div>
     );

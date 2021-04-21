@@ -1,0 +1,28 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "firstname": "Margit",
+      "lastname": "Tennosaar",
+      "phonenumber": "123455633",
+      "message": "Some really important message",
+      "role": "teacher"
+    },
+    {
+      "id": 2,
+      "firstname": "Someone",
+      "lastname": "Else",
+      "phonenumber": "123455633",
+      "message": "That is also important message",
+      "role": "student"
+    },
+    {
+      "id": 3,
+      "firstname": "Noidea",
+      "lastname": "AboutNames",
+      "phonenumber": "123455633",
+      "message": "It is so loud in here....",
+      "role": "other"
+    }
+  ]
+}
